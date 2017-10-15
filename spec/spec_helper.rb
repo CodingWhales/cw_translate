@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "cw_translate"
+require "cw_translate/cache"
+require "cw_translate/translator"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
