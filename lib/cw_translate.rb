@@ -3,8 +3,8 @@ require "cw_translate/cache"
 require "cw_translate/translator"
 
 module CwTranslate
-  DEFAULT_OPTIONS = {from: nil, translator: nil, no_cache: false}.freeze
-  DEFAULT_FROM = 'en'
+  DEFAULT_FROM = 'en'.freeze
+  DEFAULT_OPTIONS = {from: DEFAULT_FROM, translator: nil, no_cache: false}.freeze
 
   def self.cache(cache_name = nil)
     throw 'Not Implemented'
@@ -14,15 +14,14 @@ module CwTranslate
     throw 'Not Implemented'
   end
 
-  def self.translate(text, to, from = DEFAULT_FROM, opts = {})
+  def self.translate(text, to, opts = {})
     opts = DEFAULT_OPTIONS.merge(opts)
     cache = self.cache
     translator = self.translator
 
-    translation = cache.lookupCache(text, to, from)
-    unless translation
-      translation = translator.translate(text, to, from)
-      cache.updateCache(text, to, from, translation)
+    unless translation = cache.lookupCache(text, to, opts[:from])
+      translation = translator.translate(text, to, opts[:from])
+      cache.updateCache(text, to, opts[:from], translation)
     end
 
     translation
