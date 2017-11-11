@@ -31,25 +31,21 @@ gem 'cw_translate'
 [TBD]
 
 ### Translation API
+`CwTranslate` module provides a quick initialization method of a `CwTranslate::Translate` class, using configuration files (see [Configuration](#configuration)).
 
-Once configured, translating any word is done by calling the only public method
-`CwTranslate::translate`, which needs the text to be translated, and the target language:
-
-```ruby
-CwTranslate.translate 'hello', 'de' # > hallo
+```ruby CwTranslate.init
+t = CwTranslate.init
 ```
 
-It allows a third `options` parameter:
-
+An instance of `CwTranslate::Translate` can be initialized directly too:
 ```ruby
-options = {
-  from: 'en', # source language. When not specified, configured default source is used
-  translator: 'yandex', # translator implementation to use. When not specified, configured default translator will be used.
-  no_cache: false, # default false. When true, the cache will be bypassed for both lookup and update
-}
+t = CwTranslate::Translate.new('en', 'de', yandex_translator, file_cache)
+```
 
-CwTranslate.translate 'hello', 'es', options # > 'hola'
-
+Once initialized, an instance of `CwTranslate::Translate` is ready to translate text:
+```ruby
+t.translate 'hello' # > 'hallo'
+t.translate 'hello', false # > 'hallo'
 ```
 
 ### Bundled Translators
