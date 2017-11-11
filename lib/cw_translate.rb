@@ -4,7 +4,7 @@ require "cw_translate/translator"
 
 module CwTranslate
   # @param config [CwTranslate::Config]
-  def self.init(config)
+  def self.initTranslate(config)
     config ||= Config.load
     Translate.new(config.source, config.target, config.translator, config.cache)
   end

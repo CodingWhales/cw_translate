@@ -33,7 +33,7 @@ gem 'cw_translate'
 ### Translation API
 `CwTranslate` module provides a quick initialization method of a `CwTranslate::Translate` class, using configuration files (see [Configuration](#configuration)).
 
-```ruby CwTranslate.init
+```ruby
 t = CwTranslate.init
 ```
 
@@ -50,7 +50,7 @@ t.translate 'hello', false # > 'hallo'
 
 ### Bundled Translators
 
-The followin transaltor implementations are bundled with the gem:
+The following transaltor implementations are bundled with the gem:
 
 - [YandexTranslator](/lib/cw_translate/translator/yandex/translator.rb): Uses [Yandex Translate API](https://tech.yandex.com/translate/)
 
