@@ -1,4 +1,4 @@
-# CwTranslate
+  # CwTranslate
 An extensible translation API, and executable command ;)
 
 ## Features
