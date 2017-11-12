@@ -1,6 +1,7 @@
 require "cw_translate/version"
 require "cw_translate/cache"
 require "cw_translate/translator"
+require "cw_translate/cli"
 
 module CwTranslate
   DEFAULT_OPTIONS = {from: nil, translator: nil, no_cache: false}.freeze

@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift("#{__dir__}/../lib")
+
+require 'cw_translate'
+require 'rationalist'
+
+RATIONALIST_OPTIONS = {
+  alias: { from: 'f', to: 't' }
+}.freeze
+
+args = Rationalist.parse(ARGV, RATIONALIST_OPTIONS)
+cli = CwTranslate::CLI.new(args)
