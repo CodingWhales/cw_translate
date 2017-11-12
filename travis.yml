@@ -1,0 +1,9 @@
+sudo: false
+language: ruby
+
+script: bundle exec ruby spec
+
+rvm:
+- 2.4.2
+- 2.3.5
+- 2.2
