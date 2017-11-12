@@ -10,4 +10,4 @@ RATIONALIST_OPTIONS = {
 }.freeze
 
 args = Rationalist.parse(ARGV, RATIONALIST_OPTIONS)
-cli = CwTranslate::CLI.new(args)
+CwTranslate::CLI.new(args)
