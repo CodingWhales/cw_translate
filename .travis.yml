@@ -3,7 +3,7 @@ language: ruby
 
 before_install: gem install bundler -v 1.15.3
 
-script: bundle exec ruby spec
+script: bundle exec rspec
 
 rvm:
 - 2.4.2
