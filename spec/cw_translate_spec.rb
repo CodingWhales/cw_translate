@@ -1,14 +1,14 @@
-require "spec_helper"
+require 'spec_helper'
 
 RSpec.describe CwTranslate do
-  it "has a version number" do
+  it 'has a version number' do
     expect(CwTranslate::VERSION).not_to be nil
   end
 
-  describe ".translate" do
+  describe '.translate' do
     subject { described_class.translate(*args) }
     context 'mandatory arguments' do
-      let(:args) { ['hello', 'de'] }
+      let(:args) { %w[hello de] }
       let(:translation) { 'hallo' }
       let(:cache) { CwTranslate::Cache.new }
       let(:translator) { CwTranslate::Translator.new }

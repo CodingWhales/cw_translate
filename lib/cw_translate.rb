@@ -1,17 +1,17 @@
-require "cw_translate/version"
-require "cw_translate/cache"
-require "cw_translate/translator"
-require "cw_translate/cli"
+require 'cw_translate/version'
+require 'cw_translate/cache'
+require 'cw_translate/translator'
+require 'cw_translate/cli'
 
 module CwTranslate
-  DEFAULT_OPTIONS = {from: nil, translator: nil, no_cache: false}.freeze
-  DEFAULT_FROM = 'en'
+  DEFAULT_OPTIONS = { from: nil, translator: nil, no_cache: false }.freeze
+  DEFAULT_FROM = 'en'.freeze
 
-  def self.cache(cache_name = nil)
+  def self.cache(_cache_name = nil)
     throw 'Not Implemented'
   end
 
-  def self.translator(translator_name = nil)
+  def self.translator(_translator_name = nil)
     throw 'Not Implemented'
   end
 
