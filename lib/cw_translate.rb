@@ -16,14 +16,14 @@ module CwTranslate
   end
 
   def self.translate(text, to, from = DEFAULT_FROM, opts = {})
-    opts = DEFAULT_OPTIONS.merge(opts)
+    _opts = DEFAULT_OPTIONS.merge(opts)
     cache = self.cache
     translator = self.translator
 
-    translation = cache.lookupCache(text, to, from)
+    translation = cache.lookup_cache(text, to, from)
     unless translation
       translation = translator.translate(text, to, from)
-      cache.updateCache(text, to, from, translation)
+      cache.update_cache(text, to, from, translation)
     end
 
     translation

@@ -18,8 +18,8 @@ RSpec.describe CwTranslate do
         allow(described_class).to receive(:cache) { cache }
         allow(described_class).to receive(:translator) { translator }
 
-        allow(cache).to receive(:lookupCache) { cache_translation }
-        allow(cache).to receive(:updateCache)
+        allow(cache).to receive(:lookup_cache) { cache_translation }
+        allow(cache).to receive(:update_cache)
         allow(translator).to receive(:translate) { translation }
       end
 
@@ -27,9 +27,9 @@ RSpec.describe CwTranslate do
         expect(described_class).to receive(:cache).with(no_args)
         expect(described_class).to receive(:translator).with(no_args)
 
-        expect(cache).to receive(:lookupCache).with('hello', 'de', described_class::DEFAULT_FROM)
+        expect(cache).to receive(:lookup_cache).with('hello', 'de', described_class::DEFAULT_FROM)
         expect(translator).to receive(:translate).with('hello', 'de', described_class::DEFAULT_FROM)
-        expect(cache).to receive(:updateCache).with('hello', 'de', described_class::DEFAULT_FROM, 'hallo')
+        expect(cache).to receive(:update_cache).with('hello', 'de', described_class::DEFAULT_FROM, 'hallo')
 
         expect(subject).to eq('hallo')
       end
@@ -38,7 +38,7 @@ RSpec.describe CwTranslate do
         let(:cache_translation) { translation }
 
         it 'does not call translator.translate and return from cache' do
-          expect(cache).to receive(:lookupCache).with('hello', 'de', described_class::DEFAULT_FROM)
+          expect(cache).to receive(:lookup_cache).with('hello', 'de', described_class::DEFAULT_FROM)
           expect(translator).not_to receive(:translate)
 
           expect(subject).to eq('hallo')

@@ -1,14 +1,14 @@
 module CwTranslate
   class Cache
-    def lookupCache
+    def lookup_cache
       throw 'Not Implemented'
     end
 
-    def updateCache
+    def update_cache
       throw 'Not Implemented'
     end
 
-    def clearCache
+    def clear_cache
       throw 'Not Implemented'
     end
   end
