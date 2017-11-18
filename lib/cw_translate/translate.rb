@@ -19,12 +19,14 @@ module CwTranslate
       end
     end
 
+    attr_reader :source, :target, :translator, :cache
+
     private
 
     # @private
     def translation(text, use_cache)
-      use_cache && cache.lookupCache(text, to, opts[:from]) ||
-          @translator.translate(text, to, opts[:from])
+      translation = use_cache && cache.lookupCache(text, to, opts[:from])
+      translation || @translator.translate(text, to, opts[:from])
     end
   end
 end

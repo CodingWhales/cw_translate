@@ -20,9 +20,10 @@ module CwTranslate
 
     # @abstract Clears the entire cache. Calls to #lookupCache after a call to #clearCache
     # must return nil until same combination being updated again using #updateCache
-    # @param options [Hash]
-    # @option options
-    def clear_cache(from: nil, to: nil)
+    # @param opts [Hash] When multiple options exist, they all must match to clear entries.
+    # @option opts [from] clear entries made for translation with this source language (in ISO 639-1/639-2 Code)
+    # @option opts [to] clear entries made for translation with this target language (in ISO 639-1/639-2 Code)
+    def clear_cache(_opts)
       throw 'Not Implemented'
     end
   end

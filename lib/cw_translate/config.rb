@@ -4,7 +4,8 @@ module CwTranslate
   class Config
     # @param config_file_path [String] path to configuration yml. Default (see #find_config_file)
     # @return [CwTranslate::Config]
-    def self.load(config_file_path = find_config_file)
+    def self.load(_config_file_path = find_config_file)
+      throw 'Not Implemented'
     end
 
     # Find configuration file following this order:
@@ -14,6 +15,7 @@ module CwTranslate
     # 4. "/etc/cw_translate/config.yml"
     # @return [String] absolute path to closest configuration file
     def self.find_config_file
+      throw 'Not Implemented'
     end
   end
 end
