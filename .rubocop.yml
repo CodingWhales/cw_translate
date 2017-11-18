@@ -1,0 +1,10 @@
+Metrics/LineLength:
+  Include:
+    - 'lib/**'
+
+Style/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/Documentation:
+  Enabled: false
