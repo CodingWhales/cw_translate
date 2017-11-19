@@ -14,19 +14,15 @@ module CwTranslate
     # @param text [String] text to translate
     # @param use_cache [Boolean] whether to use cache
     def translate(text, use_cache = true)
-      translation(text, no_cache).tap do |translation|
-        use_cache && @cache.updateCache(text, to, opts[:from], translation)
+      translation = use_cache && cache.lookup_cache(text, target, source)
+      unless translation
+        translation = translator.translate(text, target, source)
+        use_cache && cache.update_cache(text, target, source, translation)
       end
+
+      translation
     end
 
     attr_reader :source, :target, :translator, :cache
-
-    private
-
-    # @private
-    def translation(text, use_cache)
-      translation = use_cache && cache.lookupCache(text, to, opts[:from])
-      translation || @translator.translate(text, to, opts[:from])
-    end
   end
 end
