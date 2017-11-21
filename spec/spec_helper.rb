@@ -1,5 +1,8 @@
 require 'bundler/setup'
 require 'cw_translate'
+require 'cw_translate/cli'
+require 'cw_translate/translate'
+require 'cw_translate/config'
 require 'cw_translate/cache'
 require 'cw_translate/translator'
 

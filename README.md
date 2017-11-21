@@ -1,41 +1,79 @@
-# CwTranslate
+  # CwTranslate
+An extensible translation API, and executable command ;)
 
-[![Build Status](https://travis-ci.org/CodingWhales/cw_translate.svg?branch=master)](https://travis-ci.org/CodingWhales/cw_translate)
+## Features
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cw_translate`. To experiment with that code, run `bin/console` for an interactive prompt.
+* Simple [translation API](#translation-api).
+* Configurable source of translation. See [Bundled Translators](#bundled-translators)
+* Caching Support. See [Bundled Caches](#bundled-caches)
+* Extensible with your implementation of `CwTranslate::Translator` and `CwTranslate::Cache`
+* Executable from the command line. See [using executable](#using-executable)
+* Integrable with Rails. See [using with Rails](#using-with-rails)
 
-TODO: Delete this and the text above, and describe your gem
+## Getting started
 
-## Installation
+### Installation
 
-Add this line to your application's Gemfile:
+Install the gem:
+
+```bash
+gem install `cw_translate`
+```
+
+or add it to your project Gemfile:
 
 ```ruby
 gem 'cw_translate'
 ```
 
-And then execute:
+### Configuration
 
-    $ bundle
+[TBD]
 
-Or install it yourself as:
+### Translation API
+`CwTranslate` module provides a quick initialization method of a `CwTranslate::Translate` class, using configuration files (see [Configuration](#configuration)).
 
-    $ gem install cw_translate
+```ruby
+t = CwTranslate.init
+```
+
+An instance of `CwTranslate::Translate` can be initialized directly too:
+```ruby
+t = CwTranslate::Translate.new('en', 'de', yandex_translator, file_cache)
+```
+
+Once initialized, an instance of `CwTranslate::Translate` is ready to translate text:
+```ruby
+t.translate 'hello' # > 'hallo'
+t.translate 'hello', false # > 'hallo'
+```
+
+### Bundled Translators
+
+The following transaltor implementations are bundled with the gem:
+
+- [YandexTranslator](/lib/cw_translate/translator/yandex/translator.rb): Uses [Yandex Translate API](https://tech.yandex.com/translate/)
+
+### Bundled Caches
+
+The following cache implementations are bundled with the gem:
+
+- [RedisCache](/lib/cw_translate/cache/redis/cache.rb): Uses [Redis](https://redis.io/) for caching.
 
 ## Usage
 
-TODO: Write usage instructions here
+### Using executable
 
-## Development
+### Using with Rails
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Documentation
+This gem is documented using [YARD](https://yardoc.org/).
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Check [generated documentation](/docs/index.md)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/cw_translate. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## Code of Conduct
 
-Everyone interacting in the CwTranslate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/cw_translate/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CwTranslate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/CodingWhales/cw_translate/blob/master/CODE_OF_CONDUCT.md).
