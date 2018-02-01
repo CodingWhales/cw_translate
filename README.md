@@ -52,7 +52,7 @@ t.translate 'hello', false # > 'hallo'
 
 The following transaltor implementations are bundled with the gem:
 
-- [YandexTranslator](/lib/cw_translate/translator/yandex/translator.rb): Uses [Yandex Translate API](https://tech.yandex.com/translate/)
+- [YandexTranslator](/lib/cw_translate/translator/yandex/translator.rb): Uses [Yandex Translate API](https://tech.yandex.com/translate/). If you will use this translator, make sure to check their licensing at https://tech.yandex.com/translate/doc/dg/concepts/design-requirements-docpage/.
 
 ### Bundled Caches
 

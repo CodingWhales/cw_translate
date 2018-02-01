@@ -5,6 +5,7 @@ require 'cw_translate/translate'
 require 'cw_translate/config'
 require 'cw_translate/cache'
 require 'cw_translate/translator'
+require 'cw_translate/translators/yandex'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
