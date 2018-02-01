@@ -7,7 +7,7 @@ module CwTranslate
         @translator = ::Yandex::Translator.new(api_key)
       end
 
-      attr_accessor :translator
+      attr_reader :translator
 
       def translate(text, to, from = nil)
         translator.translate text, from: from, to: to
